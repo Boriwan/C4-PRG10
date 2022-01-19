@@ -14,12 +14,12 @@ public class Main {
 
         char[] arr = input.toCharArray();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == '<')
-            coor.setX(x--);
-            if (arr[i] == '>')
+        for (char c : arr) {
+            if (c == '<')
+                coor.setX(x--);
+            if (c == '>')
                 coor.setX(x++);
-            if (arr[i] == 'v')
+            if (c == 'v')
                 coor.setY(y--);
             else
                 coor.setY(y++);

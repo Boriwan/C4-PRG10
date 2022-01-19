@@ -28,7 +28,14 @@ public class Coor {
 
     @Override
     public boolean equals(Object o) {
-        return false;
+        if (this == o)
+            return true;
+
+        if (o == null ||getClass() != o.getClass())
+            return false;
+
+        Coor coor = (Coor) o;
+        return x == coor.x && y == coor.y;
     }
 
     @Override
