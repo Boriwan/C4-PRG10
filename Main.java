@@ -1,28 +1,30 @@
-import java.util.HashMap;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        HashMap<Coor, Integer> map;
-        Coor coor = new Coor(0, 0);
+    public static void main(String[] args) throws FileNotFoundException {
+        File file = new File("input.txt");
+        Scanner sc = new Scanner(file);
+        HashSet<Coor> set = new HashSet<>();
+
         int x = 0, y = 0;
-        Scanner sc = new Scanner("input.txt");
 
-        String input = "";
-        while (sc.hasNextLine())
-            input = input + "\n" + sc.nextLine();
 
-        char[] arr = input.toCharArray();
+        String input = sc.nextLine();
+        String[] split = input.split("");
 
-        for (char c : arr) {
-            if (c == '<')
-                coor.setX(x--);
-            if (c == '>')
-                coor.setX(x++);
-            if (c == 'v')
-                coor.setY(y--);
-            else
-                coor.setY(y++);
+        for (String s : split) {
+            switch (s) {
+                case "<" -> x -= 1;
+                case ">" -> x += 1;
+                case "v" -> y -= 1;
+                case "^" -> y += 1;
+            }
+            Coor coor = new Coor(x, y);
+            set.add(coor);
         }
+        System.out.println(set.size()+1);
     }
 }
