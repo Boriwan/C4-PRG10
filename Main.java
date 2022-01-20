@@ -1,10 +1,9 @@
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        HashMap<Coor, Integer> map;
-        Coor coor = new Coor(0, 0);
+        HashSet<Coor> set = new HashSet<>();
         int x = 0, y = 0;
         Scanner sc = new Scanner("input.txt");
 
@@ -15,14 +14,25 @@ public class Main {
         char[] arr = input.toCharArray();
 
         for (char c : arr) {
-            if (c == '<')
-                coor.setX(x--);
-            if (c == '>')
-                coor.setX(x++);
-            if (c == 'v')
-                coor.setY(y--);
-            else
-                coor.setY(y++);
+            if (c == '<') {
+                x--;
+                Coor coor = new Coor(x, 0);
+                set.add(coor);
+            }
+            if (c == '>') {
+                x++;
+                Coor coor = new Coor(x, 0);
+                set.add(coor);
+            }
+            if (c == 'v') {
+                y--;
+                Coor coor = new Coor(0, y);
+                set.add(coor);
+            } else {
+                y++;
+                Coor coor = new Coor(0, y);
+                set.add(coor);
+            }
         }
     }
 }
