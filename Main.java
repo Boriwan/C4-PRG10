@@ -13,26 +13,29 @@ public class Main {
 
         char[] arr = input.toCharArray();
 
+        Coor coor = new Coor(x, y);
+        set.add(coor);
+
         for (char c : arr) {
             if (c == '<') {
                 x--;
-                Coor coor = new Coor(x, 0);
-                set.add(coor);
+                Coor coor2 = new Coor(x,y);
+                set.add(coor2);
             }
-            if (c == '>') {
+            else if (c == '>') {
                 x++;
-                Coor coor = new Coor(x, 0);
-                set.add(coor);
-            }
-            if (c == 'v') {
+                Coor coor2 = new Coor(x,y);
+                set.add(coor2);            }
+            else if (c == 'v') {
                 y--;
-                Coor coor = new Coor(0, y);
-                set.add(coor);
+                Coor coor2 = new Coor(x,y);
+                set.add(coor2);
             } else {
                 y++;
-                Coor coor = new Coor(0, y);
-                set.add(coor);
+                Coor coor2 = new Coor(x,y);
+                set.add(coor2);
             }
         }
+        System.out.println(set.size());
     }
 }
