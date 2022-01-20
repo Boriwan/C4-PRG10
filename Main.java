@@ -11,7 +11,6 @@ public class Main {
 
         int x = 0, y = 0;
 
-
         String input = sc.nextLine();
         String[] split = input.split("");
 
